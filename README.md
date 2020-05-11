@@ -1,3 +1,6 @@
+![](https://static.joomlart.com/images/ja-template/t4-framework/logo/t4-dark-logo-full.png)
+
+
 T4 TEMPLATE FRAMEWORK - Joomla Responsive Template Framework, built with Bootstrap & LESS
 ==============
 
