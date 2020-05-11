@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="typelist-site" addfieldpath="/plugins/system/t4/admin/field">
+        <fieldset name="site-logo" icon="cubes" class="site_group has-icon" type="legend" subgroup="1"
+            label="T4_GROUP_LOGO_LABEL"
+            description="T4_GROUP_LOGO_DESC">
+
+            <field name="site_name"  type="text" default=""
+            label="TPL_T4_SITE_NAME_LABEL"
+            description="TPL_T4_SITE_NAME_DESC"
+            filter="string" />
+
+            <field name="site_slogan"  type="text" default=""
+            label="TPL_T4_SITE_SLOGAN_LABEL"
+            description="TPL_T4_SITE_SLOGAN_DESC"
+            filter="string" />
+
+            <field name="site_logo" class="" type="media" default=""
+            label="TPL_T4_SITE_LOGO"
+            description="TPL_T4_SITE_LOGO_DESC" />
+
+
+            <field name="site_logo_small" class="" type="media" default=""
+            label="TPL_T4_SITE_LOGO_SMALL"
+            description="TPL_T4_SITE_LOGO_SMALL_DESC" />
+        </fieldset>
+
+        <!-- Other Settings -->
+        <fieldset name="site-other" icon="cog" type="legend" subgroup="1" class="other_group has-icon"
+                label="T4_OTHER_CONFIGURE_LABEL"
+            description="T4_OTHER_CONFIGURE_DESC">
+
+            <field name="other_faviconFile" class="checkbox-group favicon" type="media" default="" label="T4_FAVICON_FILE_LABEL" description="T4_FAVICON_FILE_DESC" />
+
+            <field name="other_backToTop" class="" type="t4radio" default="0"
+                label="T4_BACK_TO_TOP_LABEL"
+                description="T4_BACK_TO_TOP_DESC" />
+        </fieldset>
+    </fields>
+</form>

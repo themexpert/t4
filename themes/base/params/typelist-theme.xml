@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="typelist-theme" addfieldpath="/plugins/system/t4/admin/field">
+
+		<!-- Typography -->
+		<fieldset name="group_styles_font" class="body_group custom_font_group has-icon" type="legend" subgroup="1" 
+			label="T4_TYPOGRAPHY_LABEL" icon="font"
+			description="T4_TYPOGRAPHY_DESC">
+
+			<field name="body_font_family" class="body-google-font" type="googlefonts" default="PT Sans"
+			label="T4_BODY_FONT_LABEL" description="T4_BODY_FONT_DESC" icon="car" />
+
+			<field name="body_font_weight" class="inline body-font-weight" type="fontweight" default="400" hint="400"
+				label="T4_BODY_FONT_WEIGHT_LABEL"
+				description="T4_BODY_FONT_WEIGHT_DESC" >
+			</field>
+
+			<field name="body_font_size" class="font-size" type="text" default="16px" hint="16px"
+				label="T4_BODY_FONT_SIZE_LABEL"
+				description="T4_BODY_FONT_SIZE_DESC" />
+
+			<field name="body_line_height" class="inline" type="text" default="1.4" hint="1.4"
+				label="T4_BODY_LINE_HEIGHT_LABEL"
+				description="T4_LINE_HEIGHT_DESC" />
+
+			<field name="letter_spacing" class="inline" type="text" default="0px" hint="0px"
+				label="T4_BODY_LETTER_SPACING_LABEL"
+				description="T4_BODY_LETTER_SPACING_DESC" />
+		</fieldset>
+
+		<fieldset name="group_heading_settings" type="legend" subgroup="1" icon="heading" class="heading_configure_group has-icon" 
+			label="T4_HEADING_LABEL" 
+			description="T4_HEADING_DESC">
+
+			<field name="heading_font_family" class="heading-font-family" type="googlefonts" default="" icon=""
+			label="T4_HEADING_FONT_FAMILY_LABEL" description="T4_HEADING_FONT_FAMILY_DESC" />
+
+			<field name="heading_font_weight" class="inline heading-font-weight" type="fontweight" default="400" hint="400" 
+				label="T4_HEADING_FONT_WEIGHT_LABEL"
+				description="T4_HEADING_FONT_WEIGHT_DESC" >
+			</field>
+
+			<field name="heading_line_height" class="inline" type="text" default="1.4" hint="1.4" 
+				label="T4_HEADING_LINE_HEIGHT_LABEL"
+				description="T4_HEADING_LINE_HEIGHT_DESC" />
+
+			<field name="heading_letter_spacing" class="inline" type="text" default="0px" hint="0px"
+				label="T4_HEADING_LETTER_SPACING_LABEL"
+				description="T4_HEADING_LETTER_SPACING_DESC" />
+
+			<field type="spacer" name="headingFontSize" label="Heading Fontsize" />
+
+			<field name="h1_font_size" class="h1-font-size inline" type="text" default="40px" hint="40px" 
+				label="T4_H1_FONT_SIZE_LABEL"
+				description="T4_H1_FONT_SIZE_DESC" />
+
+			<field name="h2_font_size" class="h2-font-size" type="text" default="32px" hint="32px" 
+				label="T4_H2_FONT_SIZE_LABEL"
+				description="T4_H2_FONT_SIZE_DESC" />
+
+			<field name="h3_font_size" class="h3-font-size" type="text" default="28px" hint="28px" 
+				label="T4_H3_FONT_SIZE_LABEL"
+				description="T4_H3_FONT_SIZE_DESC" />
+
+			<field name="h4_font_size" class="h4-font-size" type="text" default="24px" hint="24px" 
+				label="T4_H4_FONT_SIZE_LABEL"
+				description="T4_H1_FONT_SIZE_DESC" />
+
+			<field name="h5_font_size" class="h5-font-size" type="text" default="20px" hint="20px" 
+				label="T4_H5_FONT_SIZE_LABEL"
+				description="T4_H5_FONT_SIZE_DESC" />
+
+			<field name="h6_font_size" class="h6-font-size" type="text" default="16px" hint="16px" 
+				label="T4_H6_FONT_SIZE_LABEL"
+				description="T4_H6_FONT_SIZE_DESC" />
+		</fieldset>
+				
+		<!-- Page settings -->
+		<fieldset name="group_page_settings" type="legend" subgroup="1" class="has-icon page_group" icon="pager"
+    		label="T4_PAGE_CONFIGURE_LABEL"
+      		description="T4_PAGE_CONFIGURE_DESC">
+
+			<field name="body_text_color" class="inline" type="t4color" default="#212529"
+				label="T4_BODY_TEXT_COLOR_LABEL"
+				description="T4_BODY_TEXT_COLOR_DESC" />
+
+			<field name="link_color" class="inline" type="t4color" default="#007bff"
+				label="T4_LINK_COLOR_LABEL"
+				description="T4_LINK_COLOR_DESC" />
+
+			<field name="link_hover_color" class="inline" type="t4color" default="#0056b3"
+				label="T4_LINK_HOVER_COLOR_LABEL"
+				description="T4_LINK_HOVER_COLOR_DESC" />
+
+    	<field name="body_bg_color" class="inline" type="t4color" default="#fff"
+      		label="T4_BODY_BG_COLOR_LABEL"
+    			description="T4_BODY_BG_COLOR_DESC" />
+
+      <field name="body_bg_img" type="media" class="t4-input-media" default=""
+        label="T4_BODY_BG_IMG_LABEL"
+        description="T4_BODY_BG_IMG_DESC" />
+
+      <field name="body_bg_img_repeat" type="list" class="input-select" default="repeat"
+      	label="T4_BODY_BG_IMG_REPEAT_LABEL" description="T4_BODY_BG_IMG_REPEAT_DESC">
+        <option value="repeat">Repeat</option>
+        <option value="no-repeat">No Repeat</option>
+        <option value="repeat-x">Repeat Horizontally</option>
+        <option value="repeat-y">Repeat Vertically</option>
+        <option value="space">Space</option>
+        <option value="round">Round</option>
+        <option value="inherit">Inherit</option>
+      </field>
+
+      <field name="body_bg_img_size" type="list" class="input-select" default="" 
+        label="T4_BODY_BG_IMG_SIZE_LABEL" description="T4_BODY_BG_IMG_SIZE_DESC">
+        <option value="">Auto</option>
+        <option value="cover">Cover</option>
+        <option value="contain">Contain</option>
+        <option value="inherit">Inherit</option>
+      </field>
+
+      <field name="body_bg_img_attachment" type="list" class="input-select" default="scroll" 
+      	label="T4_BODY_BG_IMG_ATTACHMENT_LABEL" description="T4_BODY_BG_IMG_ATTACHMENT_DESC">
+        <option value="scroll">Scroll</option>
+        <option value="fixed">Fixed</option>
+        <option value="inherit">Inherit</option>
+      </field>
+
+      <field name="body_bg_img_position" type="list" class="input-select" default="left top" 
+      	label="T4_BODY_BG_IMG_POSITION_LABEL" description="T4_BODY_BG_IMG_POSITION_DESC">
+        <option value="left top">Left Top</option>
+        <option value="left center">Left Center</option>
+        <option value="left bottom">Left Bottom</option>
+        <option value="right top">Right Top</option>
+        <option value="right center">Right Center</option>
+        <option value="right bottom">Right Bottom</option>
+        <option value="center top">Center Top</option>
+        <option value="center center">Center Center</option>
+        <option value="center bottom">Center Bottom</option>
+      </field>
+		</fieldset>
+
+		<!-- Brand Colors -->
+		<fieldset name="group_brand_colors" icon="palette" class="has-icon group_custom_colors"
+			label="T4_BRAND_COLOR_GROUP" description="T4_BRAND_COLOR_GROUP_DESC" subgroup="1">
+
+			<field name="color_primary" class="inline" type="color" default="#007bff"
+				label="T4_PRIMARY_COLOR_LABEL"
+				description="T4_PRIMARY_COLOR_DESC" />
+
+			<field name="color_secondary" class="inline" type="color" default="#6c757d"
+				label="T4_SECONDARY_COLOR_LABEL"
+				description="T4_SECONDARY_COLOR_DESC" />
+
+			<field name="color_success" class="inline" type="color" default="#28a745"
+				label="T4_SUCCESS_COLOR_LABEL"
+				description="T4_SUCCESS_COLOR_DESC" />
+
+			<field name="color_info" class="inline" type="color" default="#17a2b8"
+				label="T4_INFO_COLOR_LABEL"
+				description="T4_INFO_COLOR_DESC" />
+
+			<field name="color_warning" class="inline" type="color" default="#ffc107"
+				label="T4_WARNING_COLOR_LABEL"
+				description="T4_WARNING_COLOR_DESC" />
+
+			<field name="color_danger" class="inline" type="color" default="#dc3545"
+				label="T4_DANGER_COLOR_LABEL"
+				description="T4_DANGER_COLOR_DESC" />
+
+			<field name="color_light" class="inline" type="color" default="#f8f9fa"
+				label="T4_LIGHT_COLOR_LABEL"
+				description="T4_LIGHT_COLOR_DESC" />
+
+			<field name="color_dark" class="inline" type="color" default="#343a40"
+				label="T4_DARK_COLOR_LABEL"
+				description="T4_DARK_COLOR_DESC" />
+
+      <field name="color_white" class="inline" type="color" default="#ffffff"
+        label="T4_WHITE_COLOR_LABEL"
+        description="T4_WHITE_COLOR_DESC" />
+
+      <field name="color_black" class="inline" type="color" default="#000000"
+        label="T4_BLACK_COLOR_LABEL"
+        description="T4_BLACK_COLOR_DESC" />
+		</fieldset>
+
+		<!-- User Colors -->
+		<fieldset name="group_color_custom" type="legend" icon="paint-brush" class="has-icon custom_colors"
+			label="T4_USER_COLOR_GROUP" description="T4_USER_COLOR_GROUP_DESC" subgroup="1">
+			<field name="custom_colors" class="custome_color" type="t4customcolor" default=""
+				label="T4_CUSTOM_COLOR_LABEL"
+				description="T4_CUSTOM_COLOR_DESC" />
+		</fieldset>
+		
+	</fields>
+</form>

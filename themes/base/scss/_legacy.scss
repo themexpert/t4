@@ -1,0 +1,280 @@
+// Bootstrap functions
+@import "../vendors/bootstrap/scss/_functions";
+
+// Bootstrap variables
+@import "../vendors/bootstrap/scss/variables";
+
+// Bootstrap mixins
+@import "../vendors/bootstrap/scss/mixins";
+
+
+// FORM ELEMENTS
+// -----------------------------------------
+
+// Improve style for media field
+// ----------------------------------
+.input-append {
+  position: relative;
+  @include clearfix();
+
+  .media-preview {
+    background-color: $gray-200;
+    border: 1px solid $border-color;
+    border-radius: 3px 0 0 3px;
+    height: 36px;
+    float: left;
+    line-height: 36px;
+    text-align: center;
+    width: 36px;
+  }
+
+  input[type="text"] {
+    border: 0;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    width: auto !important;
+  }
+
+  .btn {
+    background-color: $gray-200;
+    border: 1px solid $border-color;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    display: block !important;
+    float: left;
+    height: 36px;
+    line-height: 25px;
+    text-align: center;
+
+    &.modal {
+      background-color: inherit;
+      bottom: auto;
+      border-left: 1px solid $border-color;
+      border-radius: 0;
+      position: relative;
+      left: auto;
+      top: auto;
+      margin: 0;
+      line-height: 23px;
+      width: auto;
+      z-index: 5;
+    }
+
+    &:hover, &:focus, &:active {
+      background-color: $red;
+      color: $white;
+
+      &.modal {
+        background-color: $primary;
+      }
+    }
+
+    span {
+      margin: 0;
+    }
+  }
+}
+
+// Modal link
+// ----------------------------------
+a.modal {
+  color: $body-color;
+  position: relative;
+  display: inline-block;
+  height: auto;
+  vertical-align: middle;
+  width: auto;
+
+  &:hover, &:focus, &:active {
+    color: $link-hover-color;
+  }
+}
+
+span.star {
+  color: $red;
+  display: inline-block;
+}
+
+
+// Fix modal style
+// ----------------------------------
+.joomla-modal {
+  .modal-dialog {
+    margin: 0;
+    height: 100%;
+    max-width: 100%;
+    z-index: 3000;
+    width: 100%;
+
+    .modal-content {
+      border: 0;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
+      overflow: scroll;
+      height: 100%;
+    }
+  }
+}
+
+
+// Modal
+.contentpane {
+  padding: 0;
+
+  .item-page {
+    padding: $spacer;
+  }
+
+  .page-header {
+    padding-right: $spacer*6;
+
+    h2 {
+      font-size: $h4-font-size;
+    }
+  }
+}
+
+.container-popup {
+  padding: 0;
+
+  .hr-condensed {
+    border: 0;
+    margin: 10px 0;
+  }
+
+  .btn-group {
+    .btn {
+      background-color: $gray-200;
+      border-radius: 3px;
+      margin: 0 5px;
+
+      &:hover, &:focus, &:active {
+        background-color: $gray-400;
+      }
+    }
+  }
+}
+
+.sbox-content-iframe#sbox-content iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.thumbnails.thumbnails-media {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  .thumbnail {
+    min-height: 100px;
+    height: auto;
+
+    > a {
+      display: block;
+      padding: $spacer/2 $spacer/2 $spacer*1.5 $spacer;
+      height: 100%;
+      position: relative;
+
+      .height-50 {
+        min-height: 50px;
+      }
+
+      .small {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 4px 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Fix: tab hidden when click to the tab
+.nav.nav-tabs {
+  li {
+    a {
+      display: block !important;
+    }
+  }
+}
+
+.hasPopover,
+.hasTooltip {
+  display: inline-block !important;
+}
+
+// Init choosen dropdown
+// ----------------------------------
+.chzn-container {
+  min-width: 220px;
+}
+
+.input-append {
+  vertical-align: middle;
+}
+
+.control-group .controls select.inputbox {
+  width: auto;
+}
+
+.js-stools-field-filter {
+  select {
+    min-width: 250px !important;
+  }
+}
+
+// Fixed: The hidden captcha overlap the back-to-top button
+.grecaptcha-badge {
+  bottom: 70px !important;
+}
+
+// T4 Brands
+.t4-logo, .t4-logo-small {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.t4-logo {
+  width: 182px;
+  height: 50px;
+  display: inline-block;
+}
+
+.t4-logo-small {
+  width: 60px;
+  height: 30px;
+}
+
+.t4-logo, .t4-logo-color {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-blue-logo-full.png");
+}
+
+.t4-logo-small, 
+.t4-logo-small.t4-logo-color {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-blue-short-logo.png");
+}
+
+.t4-logo-light {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-white-logo-full.png");
+}
+
+.t4-logo-small.t4-logo-light {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-white-short-logo.png");
+}
+
+.t4-logo-dark {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-dark-logo-full.png");
+}
+
+.t4-logo-small.t4-logo-dark {
+  background-image: url("//static.joomlart.com/images/ja-template/t4-framework/logo/t4-dark-short-logo.png");
+}

@@ -1,0 +1,57 @@
+.__class {
+	background-color: __background_color;
+	color: __text_color;
+}
+
+.__class a {
+	color: __link_color;
+}
+
+.__class a:hover {
+	color: __link_hover_color;
+}
+
+/* Module */
+.__class .t4-module {
+	color: __text_color;
+}
+
+.__class .t4-module .module-title {
+	color: __text_color;
+}
+
+.__class .nav > li a,
+.__class .nav > li .nav-link {
+	color: __link_color;
+}
+
+.__class .nav > li a:hover,
+.__class .nav > li a:focus,
+.__class .nav > li a:active,
+.__class .nav > li .nav-link:hover,
+.__class .nav > li .nav-link:focus,
+.__class .nav > li .nav-link:active {
+	color: __link_hover_color;
+}
+
+.__class .nav > li.active a,
+.__class .nav > li.active a.nav-link
+.__class .nav > li.active:hover a,
+.__class .nav > li.active:hover a.nav-link {
+  color: __link_hover_color;
+}
+
+/* Sub nav */
+.__class .nav > li.active li a {
+  color: __link_color;
+}
+
+.__class .nav li.active li a:hover,
+.__class .nav li.active li a:focus,
+.__class .nav li.active li a:active {
+  color: __link_hover_color;
+}
+
+.__class .nav li.active li.active > a {
+  color: __link_hover_color;
+}
