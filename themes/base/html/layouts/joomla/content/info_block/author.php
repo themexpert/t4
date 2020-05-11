@@ -27,5 +27,6 @@ use Joomla\CMS\Language\Text;
 	<?php $author = ($displayData['item']->created_by_alias ?: $displayData['item']->author); ?>
 	<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 	<?php echo $author; ?>
-	<img itemprop="logo" src="" alt="" />
+	<img itemprop="logo" src="http://static.joomlart.com/images/ja-template/t4-framework/logo/t4-dark-logo-full.png"
+		alt="<?php echo $displayData['item']->author; ?>" />
 </span>
