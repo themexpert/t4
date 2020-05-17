@@ -46,7 +46,7 @@ switch ((string) $item->text)
 		$aria = Text::sprintf('JLIB_HTML_GOTO_PAGE', strtolower($item->text));
 		break;
 }
-
+$aria = $this->escape($aria);
 if ($icon !== null)
 {
 	$display = '<span class="' . $icon . '" aria-hidden="true"></span>';

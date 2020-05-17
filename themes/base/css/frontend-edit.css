@@ -127,6 +127,11 @@ fieldset legend {
 
 #modules-form {
   text-align: left; }
+  #modules-form .btn-toolbar {
+    margin-bottom: 2rem; }
+  #modules-form #options .accordion {
+    padding: 0;
+    margin-bottom: 1rem; }
   #modules-form #options .card-header {
     margin-bottom: -1px;
     padding: 0; }
@@ -144,6 +149,11 @@ fieldset legend {
         #modules-form #options .card-header h2 .btn:hover, #modules-form #options .card-header h2 .btn:focus, #modules-form #options .card-header h2 .btn:active {
           color: #007bff;
           text-decoration: none; }
+
+#editor-xtd-buttons {
+  margin-top: 1rem; }
+  #editor-xtd-buttons .btn {
+    margin-right: 0.5rem; }
 
 #sbox-window {
   padding: 20px; }

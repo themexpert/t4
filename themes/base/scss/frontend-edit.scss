@@ -206,7 +206,6 @@
 }
 
 
-
 // USER PROFILE
 // -----------------------------------
 #member-profile {
@@ -230,9 +229,15 @@ fieldset {
 #modules-form {
   text-align: left;
 
+  .btn-toolbar {
+    margin-bottom: $spacer*2;
+  }
+
   // Options
   #options {
-    .card {
+    .accordion {
+      padding: 0;
+      margin-bottom: $spacer;
     }
 
     .card-header {
@@ -259,6 +264,18 @@ fieldset {
         }
       }
     }
+  }
+
+  #custom {
+
+  }
+}
+
+#editor-xtd-buttons {
+  margin-top: $spacer;
+
+  .btn {
+    margin-right: $spacer/2;
   }
 }
 

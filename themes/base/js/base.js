@@ -26,10 +26,11 @@ jQuery(document).ready(function($) {
                 changes.forEach( function(change){
                     var clientRect = change.boundingClientRect,
                         target = change.target;
-                    if (clientRect.top <= -clientRect.height) {
 
+                        document.body.classList.add ('top-away');
+
+                    if (clientRect.top <= -clientRect.height) {
                         document.body.setAttribute('data-top-' + target.id, 'over');
-                        if (maxIdx == target.idx) document.body.classList.add ('top-away');
                     } else {
                         document.body.setAttribute('data-top-' + target.id, 'under');
                         if (maxIdx == target.idx) document.body.classList.remove ('top-away');

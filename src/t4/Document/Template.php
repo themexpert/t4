@@ -383,7 +383,7 @@ class Template {
 
 		foreach ($sources as $url => $options) {
 			if (strpos($url, 'media/jui/js/bootstrap') !== false) unset($sources[$url]);
-			if (preg_match('#/jquery(.min)?.js#', $url)) {
+			if (preg_match('#/jquery(.min)?\.js#', $url)) {
 				if ($jquery) unset($sources[$url]);
 				else $jquery = true;
 			}

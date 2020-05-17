@@ -28,7 +28,7 @@
                 "jquery"
             ],
             "js": [
-                "media/jui/js/jquery.ui.core.js"
+                "media/jui/js/jquery.ui.core.min.js"
             ]
         },
         "jquery.autocomplete": {
@@ -44,7 +44,7 @@
                 "jquery.ui.core"
             ],
             "js": [
-                "media/jui/js/jquery.ui.sortable.js"
+                "media/jui/js/jquery.ui.sortable.min.js"
             ]
         },
         "minicolors": {

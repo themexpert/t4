@@ -45,6 +45,7 @@
                 <option value="sm">Small Screen (SM)</option>
                 <option value="md">Medium Screen (MD)</option>
                 <option value="lg">Larger Screen (LG)</option>
+                <option value="xl">Extra Screen (XL)</option>
             </field>
 
 		</fieldset>

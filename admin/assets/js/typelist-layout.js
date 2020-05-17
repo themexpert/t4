@@ -121,7 +121,6 @@
 				rowObj 		= $row.data();
 			var padding_responsive = (typeof rowObj.padding_responsive == 'object') ? JSON.stringify(rowObj.padding_responsive) : rowObj.padding_responsive;
 			var margin_responsive = (typeof rowObj.margin_responsive == 'object') ? JSON.stringify(rowObj.margin_responsive) : rowObj.margin_responsive;
-			console.log(padding_responsive)
 
 			item[rowIndex] = $.extend({
 				'contents'				: []

@@ -199,26 +199,26 @@ class ChromestyleField extends \JFormFieldGroupedList
 				}
 
 				$moduleStyles[$template->element] = $styles[1];
+			}
 
-				// get from chromes layout
-				$chromeLayoutPath = $path . '/templates/' . $template->element . '/html/layouts/chromes';
+			// get from chromes layout
+			$chromeLayoutPath = $path . '/templates/' . $template->element . '/html/layouts/chromes';
 
-				if (!\JFolder::exists($chromeLayoutPath))
+			if (!\JFolder::exists($chromeLayoutPath))
+			{
+				continue;
+			}
+
+			$layouts = \JFolder::files($chromeLayoutPath, '.*\.php');
+
+			if ($layouts)
+			{
+				foreach ($layouts as &$layout)
 				{
-					continue;
+					$layout = basename($layout, '.php');
 				}
 
-				$layouts = \JFolder::files($chromeLayoutPath, '.*\.php');
-
-				if ($layouts)
-				{
-					foreach ($layouts as &$layout)
-					{
-						$layout = basename($layout, '.php');
-					}
-
-					$moduleStyles[$template->element] = $layouts;
-				}
+				$moduleStyles[$template->element] = $layouts;
 			}
 		}
 

@@ -10,9 +10,84 @@
 
 // FORM ELEMENTS
 // -----------------------------------------
+form.form-horizontal {
+  .control-group {
+    margin-bottom: 0;
 
-// Improve style for media field
+    .control-label {
+      display: inline-block;
+      float: left;
+      padding-right: 5px;
+      text-align: left;
+
+      label {
+        text-align: left;
+      }
+    }
+
+    .controls {
+      margin-left: 180px;
+    }
+  }
+}
+
+// Improve style for media upload
 // ----------------------------------
+.contentpane {
+  .row-fluid { @include make-row(); }
+
+  .span2  { @include make-col(2); }
+  .span3  { @include make-col(3); }
+  .span4  { @include make-col(4); }
+  .span5  { @include make-col(5); }
+  .span6  { @include make-col(6); }
+  .span7  { @include make-col(7); }
+  .span8  { @include make-col(8); }
+  .span9  { @include make-col(9); }
+  .span10 { @include make-col(10); }
+  .span11 { @include make-col(11); }
+  .span12 { @include make-col(12); }
+
+  .well {
+    background-color: $gray-100;
+    margin-bottom: $spacer;
+    padding: $spacer $spacer*2;
+    @extend .card;
+  }
+}
+
+#imageForm {
+  .well {
+    padding: $spacer $spacer*2;
+
+    #upbutton,
+    .button-cancel {
+      background-color: $white;
+      border: 1px solid $border-color;
+
+      &:hover, &:focus, &:active {
+        border-color: $primary;        
+      }
+    }
+
+    .row-fluid {
+      .span6:first-child {
+        padding-right: $spacer/2;
+      }
+
+      .span6:last-child {
+        padding-left: $spacer/2;
+      }
+
+      .control-group {
+        .controls {
+          margin-left: 160px;
+        }        
+      }
+    }
+  }
+}
+
 .input-append {
   position: relative;
   @include clearfix();
@@ -77,6 +152,24 @@
     }
   }
 }
+
+// Upload form
+#uploadform.well {
+  padding: $spacer;
+
+  .control-group .controls {
+    margin-left: 160px;
+  }
+
+  #upload-file {
+    margin-bottom: $spacer;
+  }
+
+  #upload-submit {
+    margin-bottom: $spacer;
+  }
+}
+
 
 // Modal link
 // ----------------------------------
@@ -167,21 +260,18 @@ span.star {
 .thumbnails.thumbnails-media {
   list-style: none;
   display: flex;
+  padding: 0;
   flex-wrap: wrap;
 
   .thumbnail {
-    min-height: 100px;
+    min-height: 70px;
     height: auto;
 
     > a {
       display: block;
-      padding: $spacer/2 $spacer/2 $spacer*1.5 $spacer;
+      padding: 20px 10px 30px;
       height: 100%;
       position: relative;
-
-      .height-50 {
-        min-height: 50px;
-      }
 
       .small {
         position: absolute;
@@ -217,6 +307,18 @@ span.star {
 
 .input-append {
   vertical-align: middle;
+}
+
+.input-prepend.input-append {
+  .media-preview.add-on {
+    height: 34px;
+    line-height: 34px;
+    padding: 0 6px;
+  }
+
+  .field-media-input {
+    max-width: 100px;
+  }
 }
 
 .control-group .controls select.inputbox {

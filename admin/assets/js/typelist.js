@@ -222,7 +222,7 @@ jQuery(document).ready(function($) {
 		// get Value
 		var value = this.script.get();
 		if (typeof value == 'object') value = JSON.stringify(value);
-		if (JSON.stringify(orgvalue) != value) {
+		if (JSON.stringify(orgvalue) != JSON.stringify(value)) {
 			// data change, then save
 			var url = location.pathname + '?option=com_ajax&plugin=t4&format=json&t4do=typelist&id=' + tempId;
 			var name = this.$input.val();

@@ -1046,7 +1046,6 @@ var T4Layout = window.t4Layout || {};
 
 		layoutApply: function(){
 			var $dataLayout = T4Layout.getGeneratedLayout();
-			console.log(JSON.stringify($dataLayout));
 			$('.t4-layouts').val(JSON.stringify($dataLayout)).trigger('change');
 			// T4Admin.t4Ajax($dataLayout,'SaveLayout');
 		},

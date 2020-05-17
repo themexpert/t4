@@ -16,10 +16,10 @@ use Joomla\CMS\Language\Text;
 <dd class="createdby" itemprop="author" itemscope itemtype="https://schema.org/Person">
 	<?php $author = ($displayData['item']->created_by_alias ?: $displayData['item']->author); ?>
 	<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
-	<?php if (!empty($displayData['item']->contact_link) && $displayData['params']->get('link_author') == true) : ?>
-	<?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', HTMLHelper::_('link', $displayData['item']->contact_link, $author, ['itemprop' => 'url'])); ?>
+	<?php if (!empty($displayData['item']->contact_link ) && $displayData['params']->get('link_author') == true) : ?>
+		<?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', HTMLHelper::_('link', $displayData['item']->contact_link, $author, array('itemprop' => 'url'))); ?>
 	<?php else : ?>
-	<?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+		<?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 	<?php endif; ?>
 </dd>
 
@@ -27,6 +27,5 @@ use Joomla\CMS\Language\Text;
 	<?php $author = ($displayData['item']->created_by_alias ?: $displayData['item']->author); ?>
 	<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 	<?php echo $author; ?>
-	<img itemprop="logo" src="http://static.joomlart.com/images/ja-template/t4-framework/logo/t4-dark-logo-full.png"
-		alt="<?php echo $displayData['item']->author; ?>" />
 </span>
+      
