@@ -34,7 +34,7 @@
 		<language tag="en-GB">en-GB/en-GB.plg_system_t4.sys.ini</language>
 	</languages>
 	<updateservers>
-		<server type="extension" priority="1" name="T4 System Plugin"><![CDATA[https://raw.githubusercontent.com/themexpert/t4/master/manifest.xml]]></server>
+        <server type="extension" priority="1" name="T4 System Plugin">http://update.joomlart.com/service/tracking/j31/plg_system_t4.xml</server>
     </updateservers>
 
 </extension>

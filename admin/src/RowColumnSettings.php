@@ -127,10 +127,9 @@ class RowColumnSettings{
 
 		$bfile = glob($bpath . '/*.php');
 		$tfile = glob($tpath . '/*.php');
-		$lpath = glob($lpath . '/*.php');
+		$lpath = glob($tpath . '/*.php');
 		$directories_file = array_merge($lpath,$tfile,$bfile);
-		// $directories_file = $bfile;
-		
+		$directories_file = $bfile;
 		if(empty($directories_file)) return '';
 		if(!empty($directories_file)){
 			foreach($directories_file as $file) {
