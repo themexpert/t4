@@ -6,6 +6,12 @@ T4 TEMPLATE FRAMEWORK - Joomla Responsive Template Framework, built with Bootstr
 
 T4 Framework is a powerful and advanced template framework for Joomla. It is a modern, flexible and highly customizable framework.
 
+Branches
+--------
+- Master : Working version
+- Core : Released from JA
+- Release : Second master, To avoid duplicate work for release
+
 Install
 --------
 - Download https://github.com/themexpert/t4/archive/master.zip
