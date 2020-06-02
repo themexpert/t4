@@ -104,8 +104,8 @@ class T4 {
 		$loader->addClassMap($classMap);
 
 		// Register renderer
+		\JLoader::registerAlias('JDocumentRendererElement', '\\T4\\Renderer\\Element');
 		\JLoader::registerAlias('JDocumentRendererHtmlElement', '\\T4\\Renderer\\Element');
-		\JLoader::registerAlias('JDocumentRendererQuixModules', '\\T4\\Renderer\\Quix');
 
 		// update template params
 		//$this->buildTemplateParams();
