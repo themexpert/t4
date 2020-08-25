@@ -129,9 +129,11 @@ class Admin {
 			'T4LayoutSaveBlock' => \JText::_('T4_LAYOUT_BLOCK_HAS_SAVED'),
 			'T4AddonsHasUpdated' => \JText::_('T4_ADDONS_HAS_UPDATED'),
 			'T4AddonsHasAdded' => \JText::_('T4_ADDONS_HAS_ADDED'),
+			'T4fontCustomAdded' => \JText::_('T4_CUSTOM_FONT_HAS_ADDED'),
 			'T4fontCustomRemoveConfirm' => \JText::_('T4_CUSTOM_FONT_CONFIRM_REMOVE'),
 			'T4fontCustomRemoved' => \JText::_('T4_CUSTOM_FONT_HAS_REMOVED'),
 			'T4TypeListSaved' => \JText::_('T4_TYPE_LIST_SAVED'),
+			'T4loadGoogleFontConfirm' => \JText::_('T4_DONT_LOAD_GOOGLE_FONT_CONFIRM'),
 		);
 		// Add loading class when rendering admin layout
 		$script = "document.documentElement.classList.add('t4admin-loading');\n";
@@ -156,12 +158,21 @@ class Admin {
 		$doc->addScript( \JUri::root(true)  . '/media/'.$pathCodeMirrorCore.'/codemirror/mode/css/css.js');
 		$doc->addScript( \JUri::root(true)  . '/media/'.$pathCodeMirrorCore.'/codemirror/mode/xml/xml.js');
 		$doc->addScript( \JUri::root(true)  . '/media/'.$pathCodeMirrorCore.'/codemirror/mode/htmlmixed/htmlmixed.js');
-		// enable jquery.ui
-		$wam = \T4\Helper\Asset::getWebAssetManager();
-		$wam->enableAsset('jquery.ui.sortable');
-		$wam->enableAsset('minicolors');
-		$wam->enableAsset('chosen');
-		$wam->enableAsset('jquery-migrate');
+		if(version_compare(JVERSION, '4', 'ge')){
+			$wam = JFactory::getDocument()->getWebAssetManager();
+			$wam->useStyle('chosen')
+				->useScript('chosen')
+				->useStyle('minicolors')
+				->useScript('minicolors')
+				->useScript('jquery-migrate');
+		}else{
+			// enable jquery.ui
+			$wam = \T4\Helper\Asset::getWebAssetManager();
+			$wam->enableAsset('minicolors');
+			$wam->enableAsset('chosen');
+			$wam->enableAsset('jquery-migrate');
+		}
+		$doc->addScript($assets_uri . '/js/jquery-ui.min.js');
 		$doc->addScript($assets_uri . '/js/overwrite-settings.js');
 		// Preview
 		$doc->addScript($assets_uri . '/js/preview.js', ['version' => 'auto']);

@@ -21,7 +21,6 @@ jQuery(function($) {
 		$parent.find('.t4-layout-col').each(function(){
 			$dataCols.push($(this).data());
 		});
-		//console.log($dataCols);
 		var $clone = $('.t4-row-setting');
 		$clone.find('.config-section').html(T4Layout.configSection($parent,'def'));
 		var $divlayout = '<ul class="t4-admin-layout">';
@@ -1070,7 +1069,6 @@ var T4Layout = window.t4Layout || {};
 				var $row 		= $(this),
 					rowIndex 	= index,
 					rowObj 		= $row.data();
-					console.log(typeof rowObj.padding_responsive);
 				var padding_responsive = (typeof rowObj.padding_responsive == 'object') ? JSON.stringify(rowObj.padding_responsive) : rowObj.padding_responsive;
 				var margin_responsive = (typeof rowObj.margin_responsive == 'object') ? JSON.stringify(rowObj.margin_responsive) : rowObj.margin_responsive;
 				item[rowIndex] = $.extend({
@@ -1085,7 +1083,10 @@ var T4Layout = window.t4Layout || {};
 						colIndex 	= index,
 						colObj 		= $column.data();
 						delete colObj.sortableitem;
+						delete colObj.idx;
+						$column.data('idx',colIndex);
 					item[rowIndex].contents[colIndex] = $.extend({
+						'idx'			: colIndex,
 						'type'			: colObj.type,
 						'name'			: colObj.name,
 						'col'			: colObj.col,
@@ -1334,8 +1335,8 @@ var T4Layout = window.t4Layout || {};
 				dataCol.push($(this).data());
 			});
 			$clone.find('.t4-layout-col').each(function(index){
-				if(typeof dataCol[index] == 'undefined') dataCol[index] = 'auto';
-				$(this).find('.t4-column-title').text(dataCol[index]);
+				if(typeof dataCol[index].col == 'undefined') dataCol[index].col = 'auto';
+				$(this).find('.t4-column-title').text(dataCol[index].col);
 				$colHide += '<span class="pos-hidden hide" data-item_vis="'+index+'" data-hidden_sm="'+dataCol[index].hidden_sm+'" data-hidden_xs="'+dataCol[index].hidden_xs+'" title="Click here to show this position on current device layout">'+dataCol[index].name+'</span>';
 			});
 			if($clone.find('.t4-layout-col').length){
@@ -1364,7 +1365,6 @@ var T4Layout = window.t4Layout || {};
 				var jcolHide = '<div class="t4-admin-layout-hiddenpos" title="Currently hidden positions">'+$colHide+'</div>';
 				$clone.append(jcolHide);
 			}
-
 			return $clone.html();
 		},
 		initOverlayReadonly: function($over_type){

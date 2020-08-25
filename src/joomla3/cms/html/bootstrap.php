@@ -229,7 +229,6 @@ abstract class JHtmlBootstrap
 
 		// JHtml::_('script', 'jui/bootstrap.min.js', array('version' => 'auto', 'relative' => true, 'detectDebug' => $debug));
 		\T4\Helper\Asset::getWebAssetManager()->enableAsset('t4.bootstrap.js');
-
 		static::$loaded[__METHOD__] = true;
 
 		return;

@@ -27,16 +27,20 @@ class CustomFont {
                     $css_url = $css;
                 }
                 $content = file_get_contents($css_url);
-               
+
                 if(empty($content)) return $output = ['error' => \JText::_('T4_ADDONS_SAVE_ERROR')];
                 preg_match_all('/@font\-face\s*\{([^}]*)\}/mu', $content, $matches);
                 $fontsElems = [];
                 foreach ($matches[1] as $match) {
                     if (preg_match_all('/font\-(family|style|weight):\s*(.*);/', $match, $matches2)) {
                         $font_match = [];
-                        for($i=0; $i<count($matches2); $i++) {
-                            $font_match[$matches2[1][$i]] = trim($matches2[2][$i], '\'"');
+
+                        for($i=0; $i < count($matches2); $i++) {
+                            if(!empty($matches2[1][$i])){
+                                $font_match[$matches2[1][$i]] = trim($matches2[2][$i], '\'"');
+                            }
                         }
+                        
                         $family = $font_match['family'];
                         $weight = '400'; 
                         if (!empty($font_match['weight'])) $weight = $font_match['weight'];

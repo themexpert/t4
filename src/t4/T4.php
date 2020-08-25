@@ -87,6 +87,11 @@ class T4 {
 		$classMap['Joomla\CMS\Helper\ModuleHelper'] = T4PATH . '/src/joomla/src/Helper/ModuleHelper.php';
 		$classMap['Joomla\CMS\MVC\View\HtmlView'] = T4PATH . '/src/joomla/src/MVC/View/HtmlView.php';
 
+		if(version_compare(JVERSION, '4', 'ge')){
+			$classMap['Joomla\CMS\WebAsset\WebAssetManager'] = T4PATH . '/src/joomla/src/WebAsset/WebAssetManager.php';
+
+		}
+
 		// override Pagination for J3
 		if (Helper\J3J4::major() < 4) {
 			$classMap['Joomla\CMS\Pagination\Pagination'] = T4PATH . '/src/joomla3/src/Pagination/Pagination.php';
@@ -104,7 +109,6 @@ class T4 {
 		$loader->addClassMap($classMap);
 
 		// Register renderer
-		\JLoader::registerAlias('JDocumentRendererElement', '\\T4\\Renderer\\Element');
 		\JLoader::registerAlias('JDocumentRendererHtmlElement', '\\T4\\Renderer\\Element');
 
 		// update template params

@@ -99,6 +99,7 @@ class RowColumnSettings{
 		$directories_file = array_merge($lfile,$tfile,$bfile);
 
 		if(empty($directories) && empty($directories_file)) return '';
+		
 		foreach($directories as $folder) {
 		    if(is_dir($folder)) {
 		        $arr = explode('/',$folder);
@@ -108,8 +109,7 @@ class RowColumnSettings{
 		if(!empty($directories_file)){
 			foreach($directories_file as $file) {
 			    if(is_file($file)) {
-			        $arr_file = explode('/',$file);
-			        $folderOpt[] = str_replace('.html','',$arr_file[count($arr_file) -1]);
+			        $folderOpt[] = basename($file,".html");
 			    }
 			}
 		}
@@ -127,16 +127,15 @@ class RowColumnSettings{
 
 		$bfile = glob($bpath . '/*.php');
 		$tfile = glob($tpath . '/*.php');
-		$lpath = glob($lpath . '/*.php');
-		$directories_file = array_merge($lpath,$tfile,$bfile);
-		// $directories_file = $bfile;
-		
+		$lfile = glob($lpath . '/*.php');
+		$directories_file = array_merge($lfile,$tfile,$bfile);
+
 		if(empty($directories_file)) return '';
+
 		if(!empty($directories_file)){
 			foreach($directories_file as $file) {
 			    if(is_file($file)) {
-			        $arr_file = explode('/',$file);
-			        $folderOpt[] = str_replace(".php","",$arr_file[count($arr_file) -1]);
+			        $folderOpt[] = basename($file,".php");
 			    }
 			}
 		}

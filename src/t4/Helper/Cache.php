@@ -81,11 +81,13 @@ class Cache {
 	public static function storeLayout($key, $layout) {
 		$data = ['layout' => $layout];
 		$doc = JFactory::getDocument();
-
-		// store webasset data
-		$wam = \T4\Helper\Asset::getWebAssetManager();
-		$assets = $wam->getAssets();
-		if (!empty($assets)) $data['assets'] = array_keys($assets);
+		
+		if(version_compare(JVERSION, '4', 'lt')){
+			// store webasset data
+			$wam = \T4\Helper\Asset::getWebAssetManager();
+			$assets = $wam->getAssets();
+			if (!empty($assets)) $data['assets'] = array_keys($assets);
+		}
 
 		// store attribs data
 		// load attribs data

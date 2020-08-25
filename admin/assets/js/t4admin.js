@@ -443,6 +443,26 @@ jQuery(function($){
             $(this).appendTo($('body'));
         }
     });
+    $(document).on('change',"#typelist_theme_dont_use_google_font",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var fontOnOff = $(this).prop('checked');
+        $(this).prop('checked',false);
+        if(fontOnOff == false) {
+            T4Admin.disGgFont('enb');
+            return;   
+        }
+        T4Admin.Confirm(T4Admin.langs.T4loadGoogleFontConfirm,function(ans){
+            if(ans){
+                $('.google-font-input').val('inherit');
+                T4Admin.disGgFont('dis');
+                $('#typelist_theme_dont_use_google_font').prop('checked',true);
+            }else{
+                T4Admin.disGgFont('enb');
+                $('#typelist_theme_dont_use_google_font').prop('checked',false);
+            }
+        },"");
+    });
     $(document).on('hidden.bs.modal','.modal', function(){
         $('body').removeClass('t4-modal-open');
     });
@@ -470,6 +490,19 @@ var T4Admin = window.T4Admin || {};
                     console.log(errMsg);
                 }
             })
+        },
+        disGgFont : function(action){
+            if(action == 'dis'){
+                if($('.tab-google-font').length) $('.tab-google-font').css({display:"none"});
+                if($('.tab-custom-font').length) $('.tab-custom-font').trigger('click');
+            }else{
+
+                if($('.tab-google-font').length){
+                    $('.tab-google-font').css({display:"block"});
+                    $('.tab-google-font').trigger('click');
+                }
+                    
+            }
         },
         generateColorJson: function () {
             var colorPattern = [];

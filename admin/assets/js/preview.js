@@ -91,13 +91,15 @@
                 params[name] = 'var(--' + val.replace(/\s/g, '_').toLowerCase().replace(/^color_/, '') + ')';
             } else {
                 if (name == 'body_bg_img') val = t4_site_root_url + val;
-                if (name.match(/_font_weight/) && val.match(/i/)){
-                    val = val.replace("i","");
-                    params[name.replace('_weight','_style')] = 'italic';
-                }else if(val && !val.match(/i/)){
-                    params[name.replace('_weight','_style')] = 'normal';
-                }else{
-                    params[name.replace('_weight','_style')] = 'inherit';
+                if (name.match(/_font_weight/)){
+                    if(val && val.match(/i/)){
+                        val = val.replace("i","");
+                        params[name.replace('_weight','_style')] = 'italic';
+                    }else if(val && !val.match(/i/)){
+                        params[name.replace('_weight','_style')] = 'normal';
+                    }else{
+                        params[name.replace('_weight','_style')] = 'inherit';
+                    }
                 }
                 //if(name.match(/letter_spacing/) && val != 'normal') val = val+"px";
                 params[name] = val;
@@ -171,7 +173,7 @@
                 var weights = load_weight ? load_weight.split(',') : [];
                 weights.push(weight ? weight : 400);
                 weights = weights.filter(function(v, i, a) {return a.indexOf(v) === i});
-                if(family) fonts.push(family + ':' + weights.join(','));
+                if(family && family != 'inherit') fonts.push(family + ':' + weights.join(','));
             }
         })
 

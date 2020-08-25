@@ -23,23 +23,29 @@ class Template {
 
 	public function __construct($doc) {
 		$this->doc = $doc ? $doc : JFactory::getDocument();
-		Asset::init();
-		Asset::getWebAssetManager()->enableAsset('t4.bootstrap.js');
-		Asset::getWebAssetManager()->enableAsset('jquery-migrate');
+		if(version_compare(JVERSION, '4', 'ge')){
+			$this->addAssets();
+		}else{
+			Asset::init();
+			Asset::getWebAssetManager()->enableAsset('t4.bootstrap.js');
+			Asset::getWebAssetManager()->enableAsset('jquery-noconflict');
+			Asset::getWebAssetManager()->enableAsset('jquery-migrate');
+		}
 	}
 
 
 	protected function addAssets() {
 		// add assets
 		if ($this->isHtml()) {
-			$wam = \T4\Helper\Asset::getWebAssetManager();
+			$wam = JFactory::getDocument()->getWebAssetManager();
 			$war = $wam->getRegistry();
-			$assetfile = '/etc/assets.json';
+			$assetfile = '/etc/assets.j4.json';
 			if (is_file(T4PATH_BASE . $assetfile)) $war->addRegistryFile(substr(T4PATH_BASE . $assetfile, strlen(JPATH_ROOT)));
 			if (is_file(T4PATH_TPL . $assetfile)) $war->addRegistryFile(substr(T4PATH_TPL . $assetfile, strlen(JPATH_ROOT)));
 			if (is_file(T4PATH_LOCAL . $assetfile)) $war->addRegistryFile(substr(T4PATH_LOCAL . $assetfile, strlen(JPATH_ROOT)));
 			// enable bootstrap by default
-			$wam->enableAsset('t4.bootstrap.js');
+			$wam->useAsset('style','bootstrap.css');
+			$wam->enableAsset('font.awesome5');
 		}
 
 	}
@@ -180,7 +186,11 @@ class Template {
 		if (!empty($addons)) {
 			$wam = \T4\Helper\Asset::getWebAssetManager();
 			foreach ($addons as $asset) {
-				$wam->enableAsset($asset);
+				if(version_compare(JVERSION, '4', 'ge')){
+					$wam->useStyle($asset);
+				}else{
+					$wam->enableAsset($asset);
+				}
 			}
 		}
 	}
@@ -222,7 +232,10 @@ class Template {
 		}
 
 		if (count($family)) {
-			$this->doc->addStylesheet('https://fonts.googleapis.com/css?family=' . urlencode(implode('|', $family)));
+			$checkload = $this->doc->params->get('theme-settings')->get('dont_use_google_font');
+			if($checkload != "1"){
+				$this->doc->addStylesheet('https://fonts.googleapis.com/css?family=' . urlencode(implode('|', $family)));
+			}
 		}
 
 	}
@@ -317,8 +330,13 @@ class Template {
 		$itemId = $input->getCmd('Itemid');
 		if ($itemId) $this->addBodyclass('item-' . $itemId);
 		$active = JFactory::getApplication()->getMenu()->getActive();
-		if ($active && $active->params) {
-			$page_cls = $active->params->get('pageclass_sfx');
+		if(version_compare(JVERSION, '4', 'ge')){
+			$params = JFactory::getApplication()->getMenu()->getParams($active->id);
+		}else{
+			$params = $active->params;
+		}
+		if ($active && $params) {
+			$page_cls = $params->get('pageclass_sfx');
 			if ($page_cls) $this->addBodyclass($page_cls);
 		}
 	}

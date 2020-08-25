@@ -62,9 +62,15 @@ class Asset {
                     if ($_uri) $asset['css'][$i] = $_uri;
                 }
             }
-
-            // add
-            $war->add($war->createAsset($name, $asset));
+            if(version_compare(JVERSION, '4', "ge")){
+                $asset = new \Joomla\CMS\WebAsset\WebAssetItem($asset['name'], $asset['uri'], ['type' => $asset['type']]);
+                // add
+                $war->add($asset['name'],$asset);
+            }else{
+                 // add
+                $war->add($war->createAsset($name,$asset));
+            }
+           
         }
     }
 }

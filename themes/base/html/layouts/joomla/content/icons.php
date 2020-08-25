@@ -25,7 +25,6 @@ $articleId = $displayData['item']->id;
 	<?php if (empty($displayData['print'])) : ?>
 
 		<?php if ($canEdit || $displayData['params']->get('show_print_icon') || $displayData['params']->get('show_email_icon')) : ?>
-			<?php //Factory::getApplication()->getDocument()->getWebAssetManager()->enableAsset('bootstrap.js.bundle'); ?>
 			<?php J3J4::enableBootstrap(); ?>
 			<div class="btn-group float-right">
 				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-<?php echo $articleId; ?>" aria-label="<?php echo Text::_('JUSER_TOOLS'); ?>"

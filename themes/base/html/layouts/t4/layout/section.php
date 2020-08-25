@@ -42,6 +42,10 @@ $id = !empty($data['id']) ? " id=\"{$data['id']}\"" : '';
 $seccls = ['t4-section'];
 if (!empty($data['name'])) 
 	$seccls[] = ' t4-' . preg_replace('/\s/', '-', strtolower($data['name']));
+if(!empty($data['t4-role']))
+	$role = ' role="' . strtolower($data['t4-role']).'"';
+else
+	$role = ' role="' . strtolower($data['name']).'"';
 if (!empty($data['extra_class'])) {
   $seccls[] = ' ' . $data['extra_class'];
 }
@@ -63,7 +67,7 @@ if ($container == 'none') {
 		$close = "</div>";
 	}
 } else {
-	$open = "<div$id$sectionClasses>$overlay\n<div$containerClasses>";
+	$open = "<div$id$sectionClasses$role>$overlay\n<div$containerClasses>";
 	$close = "</div>\n</div>";
 }
 ?>

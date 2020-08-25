@@ -63,6 +63,7 @@ jQuery(document).ready(function($){
 	}
 
 	var showDropdown = function () {
+
 		if ($activeitem.is('.dropdown')) {
 			var $dropdown = $activeitem.addClass('show').children('.dropdown-menu').addClass('show');
 
@@ -93,12 +94,12 @@ jQuery(document).ready(function($){
 	}
 
 	var endAnimating = function ($item) {
+
 		// remove animating class to make sure the dropdown is totally hidden
 		// get duration
 		var $menu = $item.closest('.t4-megamenu');
 		if (!$menu.hasClass('animate')) return;
 		var duration = parseInt($menu.data('duration')) || 400;
-
 		clearTimeout($item.data('animating-timer'));
 		$item.data('animating-timer', setTimeout(function() {
 			$item.removeClass('animating');
@@ -120,7 +121,6 @@ jQuery(document).ready(function($){
 		} else {
 			if ($menu.hasClass('animate-bak')) $menu.removeClass('animate-bak').addClass('animate');
 		}
-
 		if ($this.closest(navitem_selector_dropdown).length) {
 			if (timeout) {
 				clearTimeout(timeout);
@@ -149,7 +149,6 @@ jQuery(document).ready(function($){
 
 	});
 
-
 	// if menu open, just open the link
 	var lastClickItem = null;
 	$('.nav-item.dropdown a').on('click', function(e) {
@@ -162,12 +161,21 @@ jQuery(document).ready(function($){
 			} else {
 				location.href = this.href;
 			}
-
 			e.preventDefault();
 			e.stopPropagation();
 			return false;
 		} else {
+			location.hash = "";
+			var arr1 = this.href.split('#'),
+				arr2 = location.href.split('#');
+			if (arr1[0] == arr2[0])	{
+				if (arr1.length > 1 && arr1[1]) location.hash =  '#' + arr1[1];
+			}
 			lastClickItem = $this;
+
+			if(location.hash && !$this.is('.separator')){
+				$('.js-offcanvas-close').trigger('click');
+			}
 		}
 
 		return true;
@@ -178,4 +186,6 @@ jQuery(document).ready(function($){
 		$toggle = $('.navbar-toggler[data-target="#' + this.id + '"]');
 		if ($toggle.length == 1) $toggle.removeAttr('style');
 	})
+    
+
 })

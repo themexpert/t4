@@ -87,7 +87,7 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: __h6_font_size;
-}
+} 
 
 
 /* COLORS
@@ -108,6 +108,15 @@ h6, .h6 {
 
   .btn.btn-#{$color}:hover {
     opacity: 0.85;
+  }
+
+  .btn.btn-outline-#{$color} {
+    border-color: __color_#{$color} !important;
+    color: __color_#{$color} !important;
+  }
+
+  .btn.btn-outline-#{$color}:hover {
+    background-color: __color_#{$color} !important;
   }
 }
 

@@ -31,6 +31,7 @@ class MegaSettings{
 				$mitem->id = $item->id;
 				// get item link
 				$link  = $item->link;
+				$params = self::getItemParams($item);
 				// Reverted back for CMS version 2.5.6
 				switch ($item->type)
 				{
@@ -48,7 +49,7 @@ class MegaSettings{
 						break;
 
 					case 'alias':
-						$link = 'index.php?Itemid=' . $item->params->get('aliasoptions');
+						$link = 'index.php?Itemid=' . $params->get('aliasoptions');
 						break;
 
 					default:
@@ -57,7 +58,7 @@ class MegaSettings{
 				}
 				if (strcasecmp(substr($link, 0, 4), 'http') && (strpos($link, 'index.php?') !== false))
 				{
-					$link = \JRoute::_($link, true, $item->params->get('secure'));
+					$link = \JRoute::_($link, true, $params->get('secure'));
 				}
 				else
 				{
@@ -117,6 +118,9 @@ class MegaSettings{
 			$mitem->id = $item->id;
 			// get item link
 			$link  = $item->link;
+
+			$params = self::getItemParams($item);
+
 			// Reverted back for CMS version 2.5.6
 			switch ($item->type)
 			{
@@ -134,7 +138,7 @@ class MegaSettings{
 					break;
 
 				case 'alias':
-					$link = 'index.php?Itemid=' . $item->params->get('aliasoptions');
+					$link = 'index.php?Itemid=' . $params->get('aliasoptions');
 					break;
 
 				default:
@@ -143,7 +147,7 @@ class MegaSettings{
 			}
 			if (strcasecmp(substr($link, 0, 4), 'http') && (strpos($link, 'index.php?') !== false))
 			{
-				$link = \JRoute::_($link, true, $item->params->get('secure'));
+				$link = \JRoute::_($link, true, $params->get('secure'));
 			}
 			else
 			{
@@ -164,6 +168,16 @@ class MegaSettings{
 			}
 		}
 		return $menus;
+	}
+	//add func support J4
+	public static function getItemParams($item){
+
+		if(version_compare(JVERSION, '4', 'ge')){
+			$params = \JFactory::getApplication()->getMenu()->getParams($item->id);
+		}else{
+			$params = $item->params;
+		}
+		return $params;
 	}
 
 }

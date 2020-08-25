@@ -39,6 +39,9 @@
 					result[name.replace('_weight','_style')] = 'inherit';
 				}
 			}
+			if($input.attr('type') == 'checkbox'){
+				value = $input.prop('checked');
+			}
 			result[name] = value;
 
 		})
@@ -83,6 +86,8 @@
 				$input.data('val',dataVal);
 				$input.closest('.color-preview').find('.preview-icon').css('background-color',valColor);
 				$input.trigger('change');
+			}else if($input.attr('type') == 'checkbox'){
+				$input.val(value[name]).prop('checked',value[name]);
 			}
 			else {
 				$input.val(value[name] ? value[name] : '').trigger('change');

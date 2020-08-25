@@ -24,9 +24,9 @@ class JFormFieldT4Radio extends JFormField
 	protected $type = 't4Radio';
 	protected function getInput()
 	{
+
 		$value     = !empty($this->default) ? $this->default : '1';
 		$checked = $this->checked || !empty($this->value) ? ' checked' : '';
-
 		$class = $this->element['group'] ? (string) $this->element['group'] : '';
 		$html = '';
 		$html .= '<input type="checkbox" class="t4-input btn-group radio '.$class.'" data-group="'.$class.'" name="' . $this->name . '" id="'.$this->id.'" value="' . htmlspecialchars($value, ENT_COMPAT, 'UTF-8') . '" '.$checked.'>';

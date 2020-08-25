@@ -1,9 +1,12 @@
 // google fonts
 jQuery(document).ready(function($){
+    
     // Open Row settings Modal
     $(document).on('click touchstart', '.btn-fonts', function(e){
         e.preventDefault();
         var btndata = $(this).data();
+        var fontCheck = $('#typelist_theme_dont_use_google_font').prop('checked');
+        if(fontCheck) T4Admin.disGgFont('dis');
         //init google font modal
         var $bodyfontmodal = $('.t4-google-font-modal');
         if(!$bodyfontmodal.parents().is('.themeConfigModal')) $bodyfontmodal.appendTo('.themeConfigModal');

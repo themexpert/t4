@@ -20,7 +20,7 @@ class J3J4 {
 		if (self::major() < 4) {
 			\JHtml::_('bootstrap.framework');
 		} else {
-			self::j4EnableAsset('bootstrap.js.bundle');
+			self::j4EnableAsset('t4.bootstrap.js');
 		}
 	}
 

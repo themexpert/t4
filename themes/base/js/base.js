@@ -27,13 +27,13 @@ jQuery(document).ready(function($) {
                     var clientRect = change.boundingClientRect,
                         target = change.target;
 
-                        document.body.classList.add ('top-away');
-
                     if (clientRect.top <= -clientRect.height) {
                         document.body.setAttribute('data-top-' + target.id, 'over');
+                        document.body.classList.add('top-away');
+
                     } else {
                         document.body.setAttribute('data-top-' + target.id, 'under');
-                        if (maxIdx == target.idx) document.body.classList.remove ('top-away');
+                        document.body.classList.remove('top-away');
                     }
 
                 })
@@ -72,9 +72,9 @@ jQuery(document).ready(function($) {
             function doChange2(changes) {
                 var clientRect = changes[0].boundingClientRect;
                 if (clientRect.top < -100) {
-                    document.body.classList.add ('not-at-top');
+                    document.body.classList.add('not-at-top');
                 } else {
-                    document.body.classList.remove ('not-at-top');
+                    document.body.classList.remove('not-at-top');
                 }
             }
             var observer2 = new IntersectionObserver(doChange2, options2);
@@ -83,16 +83,15 @@ jQuery(document).ready(function($) {
 
         }
     });
-
-
-    /**
-     * Back-to-top action: scroll back to top
-     */
-    $('body').on('click','#back-to-top',function() {
-        $('body,html,.t4-content').animate({
-            scrollTop : 0
+    
+    //check anchor link scroll smoothly
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+        if(!$($.attr(this, 'href')).length) return;
+        $('.js-offcanvas-close').trigger('click');
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
-        return false;
     });
 
 
@@ -110,7 +109,17 @@ jQuery(document).ready(function($) {
     $('li.nav-item.dropdown').on('hidden.bs.dropdown', function(e) {
         $(this).find('.show').removeClass('show');
     });
-    
+
+    /**
+     * Back-to-top action: scroll back to top
+     */
+    $('body').on('click','#back-to-top',function() {
+        $('body,html,.t4-content').animate({
+            scrollTop : 0
+        }, 500);
+        return false;
+    });
+
     // //check scroll get page y 
     $(document).find('.t4-content').scroll(function (event) {
         var scroll = $('.t4-content').scrollTop();
